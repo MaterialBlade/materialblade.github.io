@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  
+  <style> 
+	/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*/
+  
+	@font-face {
+		font-family: "PT Sans";
+		font-style: normal;
+		font-weight: 400;
+		src: local("PT Sans"),     url("https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTn89ddpQ.woff2") format("woff2")
+	}
+  
+    body {
+      margin: 0 auto;
+      max-width: 960px;
+      
+	  font-family: "PT Sans", sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #111;
+      color: white;
+      z-index: 1000;
+    }
+
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 30px;
+      box-sizing: border-box;
+    }
+
+    header a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    section {
+      padding: 100px 40px;
+      /*min-height: 100vh;*/
+	  background-color: coral;
+    }
+
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+	  min-height: 100vh;
+    }
+
+	.hero-img {
+	  width: 200px;
+	  height: 200px;
+	  overflow: hidden;
+	  border-radius: 50%;
+	}
+
+	.hero-img img {
+	  width: 100%;
+	  height: 100%;
+	  object-fit: cover;
+	  transform: scale(1.25);
+	  transition: transform 0.3s ease;
+	}
+	
+	.hero-img:hover img {
+	  transform: scale(1.35);
+	}
+
+    .portfolio-item {
+      display: flex;
+      gap: 30px;
+      margin-bottom: 50px;
+      align-items: center;
+    }
+
+	/*
+    .portfolio-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+	*/
+
+    .portfolio-item img {
+      width: 300px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 20px;
+    }
+
+    @media (min-width: 900px) {
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .project {
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+
+    .project img {
+      width: 100%;
+    }
+
+    .fade {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .fade.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    #toTop {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 10px 15px;
+      background: black;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div>My Name</div>
+    <nav>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#projects">Projects</a>
+      <a href="#connect">Connect</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+	<div class="hero-img">
+	  <img src="Assets/me.png" alt="Yea that's me">
+	</div>
+  <div>
+    <h1>Oh hi, I'm Kyle</h1>
+    <p>Brief description about yourself and what you do.</p>
+  </div>
+</section>
+
+<section id="portfolio">
+  <h2>Portfolio</h2>
+
+  <div class="portfolio-item fade">
+    <img src="Assets/EK.jpg" alt="Game 1">
+    <div>
+      <h3>Ember Knights</h3>
+      <p>Description of your role and work.</p>
+    </div>
+  </div>
+  
+  <div class="portfolio-item fade">
+    <img src="Assets/LoS.jpg" alt="Game 2">
+    <div>
+      <h3>Legends of Starkadia</h3>
+      <p>Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work.</p>
+    </div>
+  </div>
+  
+  <div class="portfolio-item fade">
+    <img src="Assets/kfz.jpg" alt="Game 3">
+    <div>
+      <h3>Game Title 3</h3>
+      <p>Description of your role and work.</p>
+    </div>
+  </div>
+
+</section>
+
+<section id="projects">
+  <h2>Personal Projects</h2>
+  <div class="projects-grid">
+
+    <div class="project fade">
+      <img src="project1.jpg" alt="Project">
+      <h3>Project Name 1</h3>
+      <p>Short description.</p>
+    </div>
+	
+	<div class="project fade">
+      <img src="project1.jpg" alt="Project">
+      <h3>Project Name 2</h3>
+      <p>Short description.</p>
+    </div>
+	
+	<div class="project fade">
+      <img src="project1.jpg" alt="Project">
+      <h3>Project Name 3</h3>
+      <p>Short description.</p>
+    </div>
+
+  </div>
+</section>
+
+<section id="connect">
+  <h2>Connect</h2>
+  <p>
+    <a href="#">LinkedIn</a> |
+    <a href="#">GitHub</a> |
+    <a href="#">Email</a>
+  </p>
+</section>
+
+<button id="toTop" onclick="scrollToTop()">Top</button>
+
+<script>
+  const faders = document.querySelectorAll('.fade');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+
+  faders.forEach(el => observer.observe(el));
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
