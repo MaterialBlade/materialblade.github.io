@@ -3,28 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  
+  <title>Kyle Wolf Portfolio</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  
-  <style> 
-	/*@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');*/
-  
-	@font-face {
-		font-family: "PT Sans";
-		font-style: normal;
-		font-weight: 400;
-		src: local("PT Sans"),     url("https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTn89ddpQ.woff2") format("woff2")
-	}
-  
+
+  <style>
     body {
       margin: 0 auto;
-      max-width: 960px;
-      
-	  font-family: "PT Sans", sans-serif;
+      max-width: 860px; /* WAS 960 */
+      font-family: 'Montserrat', sans-serif;
       scroll-behavior: smooth;
     }
 
@@ -47,6 +36,38 @@
       padding: 15px 30px;
       box-sizing: border-box;
     }
+	
+	h1 {
+		text-align: center;
+		font-size: 2em;
+	}
+	
+	h2 {
+		text-align: center;
+		font-size: 1.5em;
+	}
+	
+	h3 {
+		text-align: center;
+		/*font-size: 1.17em;*/
+		font-size: 2.17em;
+	}
+	
+	h4 {
+		padding-top: 30px;
+		text-align: center;
+		font-size: 1em;
+	}
+	
+	h5 {
+		text-align: center;
+		font-size: 0.7em;
+		font-style: italic;
+		font-weight: normal;
+		margin: 0px
+	}
+	
+	li { padding: 6px }
 
     header a {
       color: white;
@@ -55,9 +76,27 @@
     }
 
     section {
-      padding: 100px 40px;
-      /*min-height: 100vh;*/
-	  background-color: coral;
+      padding: 20px;
+      position: relative;
+    }
+
+    section + section {
+      margin-top: 50px;
+    }
+
+    section + section::before {
+      content: "";
+      position: absolute;
+      top: -25px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 1px;
+      background: rgba(0,0,0,0.1);
+    }
+
+    body > section:first-of-type {
+      padding-top: 120px;
     }
 
     .hero {
@@ -65,7 +104,6 @@
       align-items: center;
       justify-content: center;
       gap: 40px;
-	  min-height: 100vh;
     }
 
 	.hero-img {
@@ -87,21 +125,46 @@
 	  transform: scale(1.35);
 	}
 
+    /* NEW PORTFOLIO LAYOUT */
     .portfolio-item {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 50px;
-      align-items: center;
+      margin-bottom: 60px;
     }
 
-	/*
-    .portfolio-item:nth-child(even) {
-      flex-direction: row-reverse;
+    .portfolio-header img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
     }
-	*/
 
-    .portfolio-item img {
-      width: 300px;
+    .portfolio-header h3 {
+      margin: 10px 0 0 0;
+    }
+	
+	.portfolio-header {
+	  position: relative;
+	}
+	
+	.portfolio-header h3 {
+	  position: absolute;
+	  bottom: 15px;
+	  left: 20px;
+	  margin: 0;
+	  color: white;
+	  font-size: 2.17em;
+	  /*text-shadow: 0 2px 8px rgba(0,0,0,0.7);*/
+	  text-shadow: 2px 2px #000000;
+
+	  /* fallback */
+	  text-shadow:
+		-1px -1px 0 rgba(0,0,0,0.3),
+		 1px -1px 0 rgba(0,0,0,0.3),
+		-1px  1px 0 rgba(0,0,0,0.3),
+		 2px  2px 0 rgba(0,0,0,1);
+		}
+
+    .portfolio-body {
+      margin-top: 15px;
     }
 
     .projects-grid {
@@ -137,6 +200,19 @@
       opacity: 1;
       transform: translateY(0);
     }
+	
+	.fade-divider {
+	  border: none;
+	  height: 1px;
+	  margin: 15px 0;
+
+	  background: linear-gradient(
+		to right,
+		transparent,
+		rgba(0, 0, 0, 0.2),
+		transparent
+	  );
+	}
 
     #toTop {
       position: fixed;
@@ -147,15 +223,39 @@
       color: white;
       border: none;
       cursor: pointer;
+	  border-radius: 5px;
+    }
+
+    .portfolio-details {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.3s ease;
+      opacity: 0;
+    }
+
+    .portfolio-item.expanded .portfolio-details {
+      opacity: 1;
+      /* height handled dynamically in JS */
+    }
+
+    .toggle-btn {
+      margin-top: 10px;
+      padding: 8px 12px;
+      cursor: pointer;
+      border: none;
+      background: #333;
+      color: white;
+	  border-radius: 5px;
     }
   </style>
-
+  
+  <link rel="stylesheet" href="LB.css">
 </head>
 <body>
 
 <header>
   <div class="header-inner">
-    <div>My Name</div>
+    <div>Kyle Wolf | Game Designer</div>
     <nav>
       <a href="#portfolio">Portfolio</a>
       <a href="#projects">Projects</a>
@@ -170,36 +270,262 @@
 	</div>
   <div>
     <h1>Oh hi, I'm Kyle</h1>
-    <p>Brief description about yourself and what you do.</p>
+    <p>Description of me goes here. Words words words.</p>
   </div>
 </section>
 
 <section id="portfolio">
   <h2>Portfolio</h2>
 
+	<!-- EK BEGINS -->
+
   <div class="portfolio-item fade">
-    <img src="Assets/EK.jpg" alt="Game 1">
-    <div>
+    <div class="portfolio-header">
+      <img src="Assets/EK.jpg" alt="Ember Knights">
       <h3>Ember Knights</h3>
-      <p>Description of your role and work.</p>
+    </div>
+	  <h5>Early Access April 2022, 1.0 Release July 2023<br>
+		Available on Steam, and Nintendo Switch</h5>
+
+    <div class="portfolio-body">
+		<p>Pixel art hack-and-slash action roguelite for 1-4 players.<br>
+		</p>
+		
+		<p>Action rogue-lites are one of my favourite game genres, so I was really excited to be able to come up with our own intense gameplay, mechanics, and special moments for players to experience.</p>
+		<p>I worked on nearly every aspect of the game. My main design work consisted of:
+		<ul>
+		<li>Core gameplay and interaction mechanics</li>
+		<li>52 enemies with distinct behaviours and 14 intense Boss fights</li>
+		<li>Contributed to all 6 weapon designs, with primary design work on 3 of them</li>
+		<li>Weapon Modification system to customize weapons, 45+ modifications, and the gameplay challenges to acquire their unlock currency</li>
+		<li>‘Trigger and Effect’ Relic combo system and 37+ Relics</li>
+		<li>Player progression system for unlocking permanent upgrades and 15+ upgrades</li>
+		<li>Designing, playtesting, and iterating all aspects gameplay and progression systems</li>
+		<li>Lead the development team during the 1 year Early Access period</li>
+		<li>The setting/theme for the 6 areas of the game</li>
+		<li>Story progression and dialogue, and blocking out all the cutscenes</li>
+		</ul>
+		</p>
+		<p>Ember Knights became the biggest project we made at the studio and the biggest project I had worked on at the time.</p>
+		
+      <div class="portfolio-details">
+		<hr class="fade-divider">
+		<h4>Big Bosses</h4>
+        <p>My favourite part of working on Ember Knights was designing the Boss encounters. They allowed for more engaging and elaborate encounters, to test the player on various mechanics they’d seen in the level preceding the boss, to hit them with something new, and to give each Boss their own personality and identity.</p>
+		<p>I wanted each boss fight to have a balance of actions that fit their theme, that tested the player’s skills, and had a level of spectacle to them. I was okay with an action that was relatively easy to dodge if it looked cool, the same as if it were an action that required the player to really pay attention to cues.</p>
+		<p>I also wanted to make sure that the difficulty didn’t come from simply throwing more ‘stuff’ at the player and overwhelming them. Positioning, spacial awareness, reflexes, timing, all of it was important. Once I got a boss design in a spot I was happy with I would playtest for balance: making sure there was appropriate anticipation on every attack, that the zones where players took damage were fair, that visual cues and audio gave players the required information. If I could beat a boss without getting hit once, I felt it was in a good spot.</p>
+
+		<h4>Design Challenges</h4>
+		<p>The project started out as an action RPG focused on story and with gameplay closer to Diablo. We determined the scope was too big and scaled it way back, taking the combat from our working prototype and starting to mold it into what eventually became Ember Knights</p>
+		<p>The most challenging time for Ember Knights was after we had launched our first public demo. Our initial ideas for level design, meta progression, and in-run progression weren’t received as well as we’d hoped and ultimately weren’t very engaging.
+		<ul>
+			<li>Levels were randomly generated, consisting of rooms that were the same size but with different layouts. Rooms felt cramped, the actual navigation of a level felt slow and tedious, and the rewards for completing rooms weren’t satisfying</li>
+			<li>Meta progression consisted of a large ‘unlock web’ where the player would unlock everything in the game: more items for during the run, passive stat bonuses, new weapons, new skills, etc. This system was clunky to use, the passive stat bonuses didn’t have a meaningful impact on gameplay, and actually unlocking to meaning items like new weapons or skills was too complicated</li>
+			<li>The in-run progression consisted of collected Relics that mostly gave passive stat bonuses and limited noticeable effects.</li>
+		</ul>
+		</p>
+		<p>To address the level design issue we scrapped what we had and adopted a linear approach where the player completes a room, chooses 1 of 2 rewards for the next room, then moves forward. We made sure that every reward type was useful to the player, and always pitted similarly tiered rewards against each other. This new flow addressed the tedium or exploring and backtracking on a map, allowed us to design individual rooms of any size or layout, and kept the pacing of the gameplay high</p>
+		<p>To address meta progression issues we split the single ‘upgrade tree’ into several new individual systems:
+			<ul>
+			<li>To upgrade their player power they would collect and spend meta currency. The passive stat bonuses were all replaced with ‘choose 1 of 3’ upgrades that affected a gameplay system in a meaningful way</li>
+			<li>To unlock new in-run Relics they would need to defeat cumulatively larger numbers of enemies and return to the staging area</li>
+			<li>To unlock new Skills they would need to defeat a level’s Miniboss and Boss and return to the staging area</li>
+			<li>To unlock new weapons they only needed to collect (but not spend) more meta currency</li>
+			</ul>
+			The player would now have multiple tracks of unlocks that they were progressing, so they would almost always have 1 new thing each time they returned to the staging area</p>
+		<p>To address the in-run Relic issue I wanted to focus on noticeable effects and gameplay changes, a ‘trigger and effect’ system where when the player did ‘trigger X’, ‘effect Y’ would always happen. The system would also allow for the ‘effect’ to also act as a ‘trigger’, creating chain effects depending on the items the player had. This updated system would give the player immediate satisfaction for triggering an effect, it would allow them to customize their builds to make extended or ‘broken’ combos, and it added more replayability to try and find the most broken combos</p>
+		<h4>Responsibilities and Creative Freedom</h4>
+		<p>On Ember Knights I was given more responsibilities and also was allowed to stretch my creative muscles in various disciplines outside of design:
+		<ul>
+			<li>During the Early Access period I managed the content to be developed, worked with a Producer to manage timelines and milestones, had final sign off on completed items, delegated junior designers, provided feedback and direction for artists, programmers, and audio designers</li>
+			<li>Bosses in Ember Knights took a lot of art resources to bring to life, so it was very important that we got to test out mechanics and ideas before they got to an art pass. To help with this I made very basic animated 3D models and converted them into sprites that we could get in game and hooked up so we could playtest them as soon as possible</li>
+			<li>Giving reference and feedback to the artists for level designs, character and enemy designs, animations, UI designs, icons, and more</li>
+			<li>I worked directly with our external sound designers and composers</li>
+			<li>I took over handling the main narrative, wrote all the dialogue for the game, storyboarded all the in-game cutscenes</li>
+		</ul>
+		</p>
+		
+		<div class="gallery">
+		  <img
+			src="Assets/EK.jpg"
+			data-full="Assets/kfz.jpg"
+			data-group="a"
+		  />
+		  
+		   <img
+			src="Assets/EK.jpg"
+			data-full="Assets/kfz-2.png"
+			data-group="a"
+		  />
+
+		  <!-- <img src="Assets/EK.png" data-group="a" />
+		  <img src="Assets/kfz.jpg" data-group="a" />
+		  <img src="Assets/kfz-2.png" data-group="a" />
+
+		  <img src="Assets/LoS.png" data-group="b" />
+		  <img src="Assets/tiny-rails.jpg" data-group="b" />
+		  -->
+		</div>
+		
+	  </div>
+
+      <button class="toggle-btn" onclick="toggleDetails(this)">Read More</button>
     </div>
   </div>
   
-  <div class="portfolio-item fade">
-    <img src="Assets/LoS.jpg" alt="Game 2">
-    <div>
+	<!-- EK ENDS -->
+  
+	<!-- STARKADIA BEGINS -->
+	
+	<div class="portfolio-item fade">
+    <div class="portfolio-header">
+      <img src="Assets/LoS.jpg" alt="Legends of Starkadia">
       <h3>Legends of Starkadia</h3>
-      <p>Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work. Description of your role and work.</p>
+    </div>
+
+    <div class="portfolio-body">
+		<p>A quirky RPG with open world exploration and turn-based combat with quick time events.<br>
+		</p>
+		
+		<p>My time on Starkadia was mostly spent exploring ideas for turn-based combat mechanics, ideas for the ‘overworld’ experience would be, some initial progression mechanics, and narrative work regarding the plot, the characters, the various worlds, and various other pieces of lore.</p>
+		<p>The initial pitch for the game was as a rogue-lite with RPG elements, that then transitioned to be more like a regular RPG (not a rogue-lite). My role was to flesh out the elements from the pitch for a more ‘full’ RPG experience.
+		</p>		
+		<p>
+		<ul>
+		<li>Combat mechanics (core systems, QTEs, combos actions)</li>
+		<li>Level design, mechanics, puzzles, interactions, traversal</li>
+		<li>Character designs</li>
+		<li>Boss and Enemy designs</li>
+		<li>Progression systems (equipment progression, xp levels)</li>
+		<li>UI/UX for all the various screens and menus</li>
+		<li>Item / Gear design (stats, gear types, combos, xp)</li>
+		<li>Quest lines for the main story, side quests for various worlds</li>
+		<li>Collaborated with a contract writer on the main story, character origins and personalities, dialogue, and more</li>
+		</ul>
+		</p>
     </div>
   </div>
   
+	<!-- STARKADIA ENDS -->
+  
+	<!-- KFZ BEGINS -->
+  
   <div class="portfolio-item fade">
-    <img src="Assets/kfz.jpg" alt="Game 3">
-    <div>
-      <h3>Game Title 3</h3>
-      <p>Description of your role and work.</p>
+    <div class="portfolio-header">
+      <img src="Assets/kfz.jpg" alt="Kung Fu Z">
+      <h3>Kung Fu Z</h3>
+    </div>
+	  <h5>Released July 2018 on Android, iOS</h5>
+
+    <div class="portfolio-body">
+		<p>Retro-style Sidecroller Beat-em-up.<br>
+		</p>
+		
+		<p>My role on KFZ was taking an early combat prototype and fleshing out the concept into a full mobile game experience. Some of the items I designed were:
+		<ul>
+			<li>Core gameplay and interaction mechanics</li>
+			<li>Randomly generated loot system with stats and bonus perks</li>
+			<li>11 Powerups</li>
+			<li>20 different abilities</li>
+			<li>6 player Sidekicks</li>
+			<li>23 Enemy and Boss designs</li>
+			<li>Meta progression, infinite ‘prestige’ mastery system, 14+ upgrades</li>
+			<li>Monetization & IAP - Revives, consumable items, seasonal bundles, costumes, sidekicks, and others</li>
+			<li>Live Ops content which included leaderboards, temporary events, seasonal content</li>
+			<li>FTUE / Tutorials</li>
+			<li>UI / UX for the majority of the game</li>
+		</ul>
+		</p>		
+      <div class="portfolio-details">
+		<hr class="fade-divider">
+		<h4>Design and Development</h4>
+		<p>Kung Fu Z was a new challenge for me because the prototype consisted mostly of a simple combat system and an art style, so it became the first project I was given the task of fleshing out the rest of the game.</p>
+		<p>From that base we would refine the combat more, I would come up with the flow of the game, new mechanics like abilities, gear generation, powerups, and sidekicks, the various progression systems, the monetization strategy, and nearly every other aspect of the game design.</p>
+		<p>I did a lot of research on other popular mobile games at the time for reference on how they were keeping players’ attention, what monetization strategies were the most successful, what level of direct interaction players were interested in, and to apply all that information to the game.</p>
+		<p>KFZ’s development had a lot of fun moments where it was just myself and the sole programmer on the team riffing ideas and secrets and putting them into the game.</p>
+		
+		</div>
+		
+	  </div>
+
+      <button class="toggle-btn" onclick="toggleDetails(this)">Read More</button>
     </div>
   </div>
+  
+	<!-- KFZ ENDS -->
+	
+	<!-- DQ2 BEGINS -->
+	
+	<div class="portfolio-item fade">
+    <div class="portfolio-header">
+      <img src="Assets/empty.jpg" alt="Dash Quest 2">
+      <h3>Dash Quest 2</h3>
+    </div>
+
+    <div class="portfolio-body">
+		<p>Words<br>
+		</p>
+		
+		<p>Words.</p>
+		
+		<p>
+		<ul>
+		<li>List item</li>
+		</ul>
+		</p>
+    </div>
+  </div>
+  
+	<!-- DQ2 ENDS -->
+	
+	<!-- ARENA STARS BEGINS -->
+	
+	<div class="portfolio-item fade">
+		<div class="portfolio-header">
+		  <img src="Assets/empty.jpg" alt="Arena Stars">
+		  <h3>Arena Stars</h3>
+		</div>
+
+		<div class="portfolio-body">
+			<p>Words<br>
+			</p>
+			
+			<p>Words.</p>
+			
+			<p>
+			<ul>
+			<li>List item</li>
+			</ul>
+			</p>
+		</div>
+	  </div>
+  
+	<!-- ARENA STARS ENDS -->
+	
+	<!-- DQH BEGINS -->
+	
+	<div class="portfolio-item fade">
+		<div class="portfolio-header">
+		  <img src="Assets/empty.jpg" alt="Dash Quest Heroes">
+		  <h3>Dash Quest Heroes</h3>
+		</div>
+
+		<div class="portfolio-body">
+			<p>Words<br>
+			</p>
+			
+			<p>Words.</p>
+			
+			<p>
+			<ul>
+			<li>List item</li>
+			</ul>
+			</p>
+		</div>
+	  </div>
+  
+	<!-- DQH ENDS -->
+  
 
 </section>
 
@@ -209,20 +535,8 @@
 
     <div class="project fade">
       <img src="project1.jpg" alt="Project">
-      <h3>Project Name 1</h3>
-      <p>Short description.</p>
-    </div>
-	
-	<div class="project fade">
-      <img src="project1.jpg" alt="Project">
-      <h3>Project Name 2</h3>
-      <p>Short description.</p>
-    </div>
-	
-	<div class="project fade">
-      <img src="project1.jpg" alt="Project">
-      <h3>Project Name 3</h3>
-      <p>Short description.</p>
+      <h3>Project Name</h3>
+      <p>Description.</p>
     </div>
 
   </div>
@@ -241,6 +555,7 @@
 
 <script>
   const faders = document.querySelectorAll('.fade');
+  //faders += document.querySelectorAll('p');
 
   const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -255,7 +570,41 @@
   function scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  function toggleDetails(button) {
+    const item = button.closest('.portfolio-item');
+    const details = item.querySelector('.portfolio-details');
+	//const header = item.querySelector('.portfolio-header');
+
+    if (item.classList.contains('expanded')) {
+      // collapse
+      details.style.maxHeight = details.scrollHeight + 'px';
+      requestAnimationFrame(() => {
+        details.style.maxHeight = '0px';
+      });
+      item.classList.remove('expanded');
+      button.textContent = 'Read More';
+	  
+	  // scroll the button into view
+	  
+	  details.scrollIntoView();
+	  window.scrollBy(0, -500);
+	  //item.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+    } else {
+      // expand
+      details.style.maxHeight = details.scrollHeight + 'px';
+      item.classList.add('expanded');
+      button.textContent = 'See Less';
+    }
+  }
 </script>
+
+<div class="lightbox" id="lightbox">
+  <button class="nav prev">‹</button>
+  <img class="lightbox-img" />
+  <button class="nav next">›</button>
+</div>
+<script src="LB.js" defer></script>
 
 </body>
 </html>

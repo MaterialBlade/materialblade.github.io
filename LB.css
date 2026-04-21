@@ -1,0 +1,70 @@
+/* Lightbox container */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Active state */
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Image */
+.lightbox-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  transition: opacity 0.2s ease;
+}
+
+/* Navigation arrows */
+.nav {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 5vw;            /* big invisible click zone */
+  min-width: 50px; /* was 120 */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 3rem;
+  color: white;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.gallery {
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	/*opacity: 0;*/
+}
+
+.gallery img {
+  width: 400px;
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+/* Hover effect */
+.gallery img:hover {
+  /*transform: scale(1.01);*/
+  filter: contrast(0.65) brightness(1.2);
+}
+
+/* keep arrows visually centered but clickable area huge */
+.prev { left: 0; justify-content: flex-start; padding-left: 20px; }
+.next { right: 0; justify-content: flex-end; padding-right: 20px; }
