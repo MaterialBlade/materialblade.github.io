@@ -12,20 +12,35 @@
   <style>
     body {
       margin: 0 auto;
-      max-width: 860px; /* WAS 960 */
+      /*max-width: 860px;*/ /* WAS 960 */
       font-family: 'Montserrat', sans-serif;
       scroll-behavior: smooth;
+	  /*font-size: 0.85em;*/
+	  /*background: #0a0a0d;*/
+	  background: #0e0e13;
     }
 
     header {
-      position: fixed;
+      /*position: fixed;*/
       top: 0;
       left: 0;
       width: 100%;
+      /*background: #3e4465;*/
       background: #111;
       color: white;
       z-index: 1000;
+	  font-size: 1.2em;
     }
+	
+	.content {
+		width: 860px;
+		margin: 0 auto;
+		color: white;
+		/*background: #18191d;*/
+		background: #20222d;
+		font-size: 0.8em; /* was 9 */
+		/*min-height: 100vh;*/
+	}
 
     .header-inner {
       max-width: 960px;
@@ -64,10 +79,17 @@
 		font-size: 0.7em;
 		font-style: italic;
 		font-weight: normal;
-		margin: 0px
+		margin: 0px;
+		padding-bottom: 16px;
 	}
 	
-	li { padding: 6px }
+	.role-header {
+		color: #1ad6d9;
+		font-size: 1.15em;
+		font-weight: bold;
+	}
+	
+	li { padding: 2px }
 
     header a {
       color: white;
@@ -92,18 +114,20 @@
       transform: translateX(-50%);
       width: 60%;
       height: 1px;
-      background: rgba(0,0,0,0.1);
+      /*background: rgba(0,0,0,0.1);*/
+      background: rgba(256,256,256,0.1);
     }
 
-    body > section:first-of-type {
+    .content > section:first-of-type {
       padding-top: 120px;
     }
 
     .hero {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 40px;
+		/*font-size: 1.0em;*/
     }
 
 	.hero-img {
@@ -209,7 +233,8 @@
 	  background: linear-gradient(
 		to right,
 		transparent,
-		rgba(0, 0, 0, 0.2),
+		/*rgba(0, 0, 0, 0.2),*/
+		rgba(256, 256, 256, 0.2),
 		transparent
 	  );
 	}
@@ -225,6 +250,20 @@
       cursor: pointer;
 	  border-radius: 5px;
     }
+	
+	/* Highlight state */
+	#toTop:hover {
+	  background-color: #304093; /* was #4caf50 */
+	  color: #fff;
+	  /*box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);*/
+	  box-shadow: 0 0 10px rgba(76, 80, 175, 0.5);
+	  transform: translateY(-1px);
+	}
+
+	/* Optional: pressed effect */
+	#toTop:active {
+	  transform: scale(0.97);
+	}
 
     .portfolio-details {
       max-height: 0;
@@ -238,6 +277,7 @@
       /* height handled dynamically in JS */
     }
 
+	/*
     .toggle-btn {
       margin-top: 10px;
       padding: 8px 12px;
@@ -246,7 +286,90 @@
       background: #333;
       color: white;
 	  border-radius: 5px;
-    }
+    }*/
+	
+	.toggle-btn {
+	  margin-top: 10px;
+	  padding: 8px 12px;
+	  cursor: pointer;
+	  border: none;
+	  border-radius: 5px;
+
+	  background-color: #0c0d11; /* was 333*/
+	  color: white;
+
+	  /* Smooth animation */
+	  transition:
+		background-color 0.3s ease,
+		color 0.3s ease,
+		transform 0.2s ease,
+		box-shadow 0.3s ease;
+	}
+
+	/* Highlight state */
+	.toggle-btn:hover {
+	  background-color: #304093; /* was #4caf50 */
+	  color: #fff;
+	  /*box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);*/
+	  box-shadow: 0 0 10px rgba(76, 80, 175, 0.5);
+	  transform: translateY(-1px);
+	}
+
+	/* Optional: pressed effect */
+	.toggle-btn:active {
+	  transform: scale(0.97);
+	}
+	
+	
+	/* ==== TWO COLUMN SECTION STARTS ==== */
+	.two-column {
+		display: flex;
+		width: 100%;
+	}
+	
+	.left-column {
+		width: 250px;
+		/*background: #FFDDDD;*/
+		/*padding: 10px;*/
+		box-sizing: border-box;
+	}
+
+	.right-column {
+		flex: 1;
+		/*background: #00FF00;*/
+		/*padding: 10px;*/
+		padding-left: 40px;
+		box-sizing: border-box;
+	}
+	
+	.game-desc {
+		font-size: 1.3em;
+		padding: 10px;
+		/*margin-top: 20px;*/
+	}
+	
+	/*--------------------------*/
+	
+	.video-container {
+	  width: 100%;
+	  aspect-ratio: 16 / 9;
+	}
+
+	.video-container iframe {
+	  width: 100%;
+	  height: 100%;
+	  border: 0;
+	  display: block;
+	  padding-top: 20px;
+	}
+	
+	.game-links {
+		padding-top: 20px;
+	}
+	
+	.game-links a {
+		color: #FFF;
+	}
   </style>
   
   <link rel="stylesheet" href="LB.css">
@@ -263,6 +386,7 @@
     </nav>
   </div>
 </header>
+<div class="content">
 
 <section class="hero">
 	<div class="hero-img">
@@ -275,38 +399,87 @@
 </section>
 
 <section id="portfolio">
-  <h2>Portfolio</h2>
+  <h2>Professional Work</h2>
 
 	<!-- EK BEGINS -->
 
   <div class="portfolio-item fade">
     <div class="portfolio-header">
-      <img src="Assets/EK.jpg" alt="Ember Knights">
+      <img src="Assets/banner-EK.jpg" alt="Ember Knights">
       <h3>Ember Knights</h3>
     </div>
-	  <h5>Early Access April 2022, 1.0 Release July 2023<br>
-		Available on Steam, and Nintendo Switch</h5>
+	<h5>Early Access April 2022, 1.0 Release July 2023<br>
+	Released on Steam, Nintendo Switch, Xbox, Playstation</h5>
 
+	<div class="game-desc">Pixel art hack-and-slash action roguelite for 1-4 players. Take on the role of the Ember Knights who are fighting to restore the Ember Tree and prevent the evil Praxis from destroying the universe.<br>
+	</div>
+	<hr class="fade-divider">
     <div class="portfolio-body">
-		<p>Pixel art hack-and-slash action roguelite for 1-4 players.<br>
-		</p>
-		
-		<p>Action rogue-lites are one of my favourite game genres, so I was really excited to be able to come up with our own intense gameplay, mechanics, and special moments for players to experience.</p>
-		<p>I worked on nearly every aspect of the game. My main design work consisted of:
-		<ul>
-		<li>Core gameplay and interaction mechanics</li>
-		<li>52 enemies with distinct behaviours and 14 intense Boss fights</li>
-		<li>Contributed to all 6 weapon designs, with primary design work on 3 of them</li>
-		<li>Weapon Modification system to customize weapons, 45+ modifications, and the gameplay challenges to acquire their unlock currency</li>
-		<li>‘Trigger and Effect’ Relic combo system and 37+ Relics</li>
-		<li>Player progression system for unlocking permanent upgrades and 15+ upgrades</li>
-		<li>Designing, playtesting, and iterating all aspects gameplay and progression systems</li>
-		<li>Lead the development team during the 1 year Early Access period</li>
-		<li>The setting/theme for the 6 areas of the game</li>
-		<li>Story progression and dialogue, and blocking out all the cutscenes</li>
-		</ul>
-		</p>
-		<p>Ember Knights became the biggest project we made at the studio and the biggest project I had worked on at the time.</p>
+		<div class="two-column">
+			<div class="left-column">
+			<div class="role-header">Roles</div><br>
+			<i>Lead Designer</i><br>
+			System / Level / Enemy / Character Design<br>
+			Gameplay Programmer<br>
+			UI/UX Design
+			<div class="game-links">
+				<div class="role-header">Platform</div><br>
+				<a href="https://store.steampowered.com/app/1135230/Ember_Knights/" target="_blank">Steam</a>
+				 |
+				<a href="https://www.nintendo.com/en-ca/store/products/ember-knights-switch/?srsltid=AfmBOorJYko0RkVCsMzv18tRqQia4LOiP6sgx4CDpGrty4h43Lmgkhem" target="_blank">Switch</a>
+				 |
+				<a href="https://store.playstation.com/en-ca/product/UP4744-PPSA23122_00-0563899439262251" target="_blank">PS</a>
+				 |
+				<a href="https://www.xbox.com/en-US/games/store/ember-knights-heroes-of-the-nexus-edition/9P8X48GGW98H" target="_blank">XB</a>
+			</div>
+			</div>
+
+			<div class="right-column">
+			<div class="role-header">Key Responsibilities</div><br>
+			
+			<strong>Core System Design</strong>
+			<ul>
+			<li>Ember Tree permanent progression system and 15+ upgrades</li>
+			<li>Weapon, Skill, and Relic unlock systems</li>
+			<li>'Trigger and Effect' Relic combo system and 37+ Relics</li>
+			<li>Weapon Modification system to customize weapons, 45+ modifications, and the gameplay challenges to acquire their unlock currency</li>
+			<li>'Praxis' system where the main villain follows the player through their run, summons more challenges, verbally taunts them, and more</li>
+			</ul>
+
+			<strong>Gameplay Design</strong>
+			<ul>
+			<li>Lead designer for 3 weapons, contributed to design of all 6</li>
+			<li>52 enemies with distinct behaviours and 14 intense Boss fight</li>
+			<li>Room and enemy encounter design for all 6 areas of the game</li>
+			<li>Designing, playtesting, and iterating all aspects gameplay and progression systems</li>
+			<li>Additional programming for enemies, bosses, characters, weapons, relics, and more</li>
+			</ul>
+
+			<strong>Project Management</strong>
+			<ul>
+			<li>Lead the development team during the 1 year Early Access period</li>
+			</ul>
+
+			<strong>Narrative Design</strong>
+			<ul>
+			<li>Story progression, character and dialogue writing, and blocking out all the cutscenes</li>
+			<li>Collaborated on the settings / themes for the 6 areas of the game</li>
+			</ul>
+			</div>
+		</div>
+		<div class="video-container">
+		<iframe
+			src="https://www.youtube.com/embed/5iF9pBmZZr4"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+			referrerpolicy="strict-origin-when-cross-origin">
+		</iframe>
+		</div>
+		<br>
+		<br>
+		<p>Action rogue-lites are one of my favourite game genres, so it was really exciting to be able to come up with our own ideas for intense gameplay, mechanics, and special moments for players to experience.</p>
+		<p>Ember Knights became the biggest project we made at the studio and the biggest project I had worked on at the time. My skillset was also broad enough that I ended up working on nearly every aspect of the game in some form.</p>
 		
       <div class="portfolio-details">
 		<hr class="fade-divider">
@@ -319,17 +492,17 @@
 		<p>The project started out as an action RPG focused on story and with gameplay closer to Diablo. We determined the scope was too big and scaled it way back, taking the combat from our working prototype and starting to mold it into what eventually became Ember Knights</p>
 		<p>The most challenging time for Ember Knights was after we had launched our first public demo. Our initial ideas for level design, meta progression, and in-run progression weren’t received as well as we’d hoped and ultimately weren’t very engaging.
 		<ul>
-			<li>Levels were randomly generated, consisting of rooms that were the same size but with different layouts. Rooms felt cramped, the actual navigation of a level felt slow and tedious, and the rewards for completing rooms weren’t satisfying</li>
-			<li>Meta progression consisted of a large ‘unlock web’ where the player would unlock everything in the game: more items for during the run, passive stat bonuses, new weapons, new skills, etc. This system was clunky to use, the passive stat bonuses didn’t have a meaningful impact on gameplay, and actually unlocking to meaning items like new weapons or skills was too complicated</li>
+			<li>Levels were randomly generated, consisting of rooms that were the same size but with different layouts. The game felt cramped, the actual navigation of a level felt slow and tedious, and the rewards for completing rooms weren’t satisfying</li>
+			<li>Meta progression consisted of a large ‘unlock web’ -- like an actual spider web -- where the player would unlock everything in the game: more items for during the run, passive stat bonuses, new weapons, new skills, etc. This system was clunky to use, the passive stat bonuses didn’t have a meaningful impact on gameplay, and actually unlocking acutally impactful items like new weapons or skills was needlessly convoluted.</li>
 			<li>The in-run progression consisted of collected Relics that mostly gave passive stat bonuses and limited noticeable effects.</li>
 		</ul>
 		</p>
-		<p>To address the level design issue we scrapped what we had and adopted a linear approach where the player completes a room, chooses 1 of 2 rewards for the next room, then moves forward. We made sure that every reward type was useful to the player, and always pitted similarly tiered rewards against each other. This new flow addressed the tedium or exploring and backtracking on a map, allowed us to design individual rooms of any size or layout, and kept the pacing of the gameplay high</p>
-		<p>To address meta progression issues we split the single ‘upgrade tree’ into several new individual systems:
+		<p>To address the level design issue we scrapped the dungeon-crawler aspect and adopted a linear approach where the player completes a room, chooses 1 of 2 rewards for the next room, then moves forward. We made sure that every reward type was useful to the player, and always pitted similarly tiered rewards against each other. This new flow addressed the tedium or exploring and backtracking on a map, allowed us to design individual rooms of any size or layout, and kept the pacing of the gameplay high</p>
+		<p>To address meta progression issues we split the single ‘upgrade web’ into several new individual systems:
 			<ul>
-			<li>To upgrade their player power they would collect and spend meta currency. The passive stat bonuses were all replaced with ‘choose 1 of 3’ upgrades that affected a gameplay system in a meaningful way</li>
+			<li>To permanently increase their power players would collect and spend meta currency. The passive stat bonuses were all replaced with ‘choose 1 of 3’ upgrades with more impactful effects, like dealing more damage when below an HP threshold or rerolling random rewards</li>
 			<li>To unlock new in-run Relics they would need to defeat cumulatively larger numbers of enemies and return to the staging area</li>
-			<li>To unlock new Skills they would need to defeat a level’s Miniboss and Boss and return to the staging area</li>
+			<li>To unlock new Skills they would need to defeat a level’s Miniboss or Boss and return to the staging area</li>
 			<li>To unlock new weapons they only needed to collect (but not spend) more meta currency</li>
 			</ul>
 			The player would now have multiple tracks of unlocks that they were progressing, so they would almost always have 1 new thing each time they returned to the staging area</p>
@@ -379,29 +552,55 @@
 	
 	<div class="portfolio-item fade">
     <div class="portfolio-header">
-      <img src="Assets/LoS.jpg" alt="Legends of Starkadia">
+      <img src="Assets/banner-los.jpg" alt="Legends of Starkadia">
       <h3>Legends of Starkadia</h3>
     </div>
 
+	<div class="game-desc">A quirky RPG with open world exploration, turn-based combat, and timed actions. After being mysteriously teleported to an alien world, mild-mannered teen Mikey finds himself in the middle of an interstellar war. It's up to his team of unlikely heroes to assist the resistance to restore peace to the Starkadian galaxy.<br>
+	</div>
+	<hr class="fade-divider">
     <div class="portfolio-body">
-		<p>A quirky RPG with open world exploration and turn-based combat with quick time events.<br>
-		</p>
 		
-		<p>My time on Starkadia was mostly spent exploring ideas for turn-based combat mechanics, ideas for the ‘overworld’ experience would be, some initial progression mechanics, and narrative work regarding the plot, the characters, the various worlds, and various other pieces of lore.</p>
+		<div class="two-column">
+			<div class="left-column">
+			<div class="role-header">Roles</div><br>
+			<i>Senior Designer</i><br>
+			System / Level / Enemy / Character Design<br>
+			Narrative Development<br>
+			UI/UX Design
+			<div class="game-links">
+				<div class="role-header">Platform</div><br>
+				<a href="https://store.steampowered.com/app/2618160/Legends_of_Starkadia/" target="_blank">Steam</a>
+			</div>
+			</div>
+
+			<div class="right-column">
+			<div class="role-header">Key Responsibilities</div><br>
+			
+			<strong>Game Design</strong>
+			<ul>
+			<li>Turn-based combat system defining player-enemy action and turn orders, usable resources (HP, AP), special actions, and more</li>
+			<li>Enemy 'weakness' system, more susceptible to certain damage types</li>
+			<li>Quick time event input types for each character's attacks and abilities, bonuses for perfect timing</li>
+			<li>Character attacks and abilities, damage types, and combos</li>
+			<li>Item / Gear design (stats, gear types, combos, xp)</li>
+			<li>Progression systems (equipment progression, xp levels)</li>
+			<li>Boss and enemy designs for combat</li>
+			<li>Level design, traversal mechanics, puzzles and interactions
+			<li>Enemy behaviours and patters outside of combat, player-chasing functionality
+			<li>UI/UX for all the various screens and menus</li>
+			</ul>
+
+			<strong>Narrative Design</strong>
+			<ul>
+			<li>Collaborated with a contract writer on the main story, character origins and personalities, dialogue, and more</li>
+			<li>Quest lines for the main story, side quests for various worlds</li>
+			</ul>
+			</div>
+		</div>
+		
+		<p>My time on Starkadia was mostly spent exploring ideas for turn-based combat mechanics, ideas for what the ‘overworld’ experience would be, some initial progression mechanics, and narrative work regarding the plot, the characters, the various worlds, and other pieces of lore.</p>
 		<p>The initial pitch for the game was as a rogue-lite with RPG elements, that then transitioned to be more like a regular RPG (not a rogue-lite). My role was to flesh out the elements from the pitch for a more ‘full’ RPG experience.
-		</p>		
-		<p>
-		<ul>
-		<li>Combat mechanics (core systems, QTEs, combos actions)</li>
-		<li>Level design, mechanics, puzzles, interactions, traversal</li>
-		<li>Character designs</li>
-		<li>Boss and Enemy designs</li>
-		<li>Progression systems (equipment progression, xp levels)</li>
-		<li>UI/UX for all the various screens and menus</li>
-		<li>Item / Gear design (stats, gear types, combos, xp)</li>
-		<li>Quest lines for the main story, side quests for various worlds</li>
-		<li>Collaborated with a contract writer on the main story, character origins and personalities, dialogue, and more</li>
-		</ul>
 		</p>
     </div>
   </div>
@@ -412,45 +611,88 @@
   
   <div class="portfolio-item fade">
     <div class="portfolio-header">
-      <img src="Assets/kfz.jpg" alt="Kung Fu Z">
+      <img src="Assets/banner-kfz.jpg" alt="Kung Fu Z">
       <h3>Kung Fu Z</h3>
     </div>
 	  <h5>Released July 2018 on Android, iOS</h5>
 
+	<div class="game-desc">Retro-style Sidecroller Beat-em-up. Kung Fu fight your way through endless hordes of zombies and other creatures to save NYZ from the mad scientist Dr. Z!<br>
+	</div>
+	<hr class="fade-divider">
     <div class="portfolio-body">
-		<p>Retro-style Sidecroller Beat-em-up.<br>
-		</p>
-		
-		<p>My role on KFZ was taking an early combat prototype and fleshing out the concept into a full mobile game experience. Some of the items I designed were:
-		<ul>
-			<li>Core gameplay and interaction mechanics</li>
-			<li>Randomly generated loot system with stats and bonus perks</li>
-			<li>11 Powerups</li>
-			<li>20 different abilities</li>
-			<li>6 player Sidekicks</li>
-			<li>23 Enemy and Boss designs</li>
+		<div class="two-column">
+			<div class="left-column">
+			<div class="role-header">Roles</div><br>
+			<i>Designer</i><br>
+			System Design<br>
+			Combat / Content Design<br>
+			Monetization / Live Ops<br>
+			UI Design
+			<div class="game-links">
+				<div class="role-header">Platform</div><br>
+				<a href="https://play.google.com/store/apps/details?id=com.tinytitanstudios.kfz&hl=en" target="_blank">Android</a>
+				 | 
+				<a href="https://apps.apple.com/us/app/kung-fu-zombie/id1380910604" target="_blank">iOS</a>
+			</div>
+			</div>
+
+			<div class="right-column">
+			<div class="role-header">Key Responsibilities</div><br>
+			
+			<strong>Core System Design</strong>
+			<ul>
 			<li>Meta progression, infinite ‘prestige’ mastery system, 14+ upgrades</li>
+			<li>XP and level system, 15+ new combo attacks to unlock</li>
+			<li>Sidekick system and progression, and design for 6 sidekicks</li>
+			<li>Randomly generated loot system with stats, bonus perks, and infinite upgrade scaling</li>
+			</ul>
+			
+			<strong>Gameplay Design</strong>
+			<ul>
+			<li>20 different character abilities</li>
+			<li>11 temporary Powerups to unlock and activate</li>
+			<li>12 Sidekick abilities</li>
+			<li>23 Enemy and Boss designs</li>
+			<li>FTUE / Tutorials</li>
+			<li>Designing, playtesting, and iterating all aspects gameplay and progression systems</li>
+			<li>UI layouts for the majority of the game</li>
+			</ul>
+			
+			<strong>Monetization and Live Ops</strong>
+			<ul>
 			<li>Monetization & IAP - Revives, consumable items, seasonal bundles, costumes, sidekicks, and others</li>
 			<li>Live Ops content which included leaderboards, temporary events, seasonal content</li>
-			<li>FTUE / Tutorials</li>
-			<li>UI / UX for the majority of the game</li>
-		</ul>
+			</ul>
+
+			</div>
+		</div>
+
+		<div class="video-container">
+		<iframe
+			src="https://www.youtube.com/embed/6BbKcJb9Tsk"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+			referrerpolicy="strict-origin-when-cross-origin">
+		</iframe>
+		</div>
+		
+		<p>My role on KFZ was taking an early combat prototype and fleshing out the concept into a full mobile game experience. KFZ was later purchased by Trophy Games and renamed to <i>Kung Fu Zombie</i>.
 		</p>		
       <div class="portfolio-details">
 		<hr class="fade-divider">
 		<h4>Design and Development</h4>
-		<p>Kung Fu Z was a new challenge for me because the prototype consisted mostly of a simple combat system and an art style, so it became the first project I was given the task of fleshing out the rest of the game.</p>
+		<p>Kung Fu Z was a new challenge for me because the prototype consisted mostly of a simple combat system and an art style, and I was given the task of fleshing out what the actual game would be for the first time.</p>
 		<p>From that base we would refine the combat more, I would come up with the flow of the game, new mechanics like abilities, gear generation, powerups, and sidekicks, the various progression systems, the monetization strategy, and nearly every other aspect of the game design.</p>
-		<p>I did a lot of research on other popular mobile games at the time for reference on how they were keeping players’ attention, what monetization strategies were the most successful, what level of direct interaction players were interested in, and to apply all that information to the game.</p>
+		<p>I did a lot of research on other popular mobile games at the time for reference on how they were keeping players’ attention, what monetization strategies were the most successful, what level of direct interaction players were interested in, and how to apply all that information to the game.</p>
 		<p>KFZ’s development had a lot of fun moments where it was just myself and the sole programmer on the team riffing ideas and secrets and putting them into the game.</p>
 		
 		</div>
 		
-	  </div>
+	</div>
 
       <button class="toggle-btn" onclick="toggleDetails(this)">Read More</button>
     </div>
-  </div>
   
 	<!-- KFZ ENDS -->
 	
@@ -458,22 +700,90 @@
 	
 	<div class="portfolio-item fade">
     <div class="portfolio-header">
-      <img src="Assets/empty.jpg" alt="Dash Quest 2">
+      <img src="Assets/banner-dq2.jpg" alt="Dash Quest 2">
       <h3>Dash Quest 2</h3>
     </div>
-
+	<h5>Released October 2019 on Android, iOS</h5>
+	
+	<div class="game-desc">Emerging from the shadows, an ancient evil threatens the land once more. The time for a new hero is now! Pick up your sword and dash-and-slash your way to saving the world!<br>
+	</div>
+	<hr class="fade-divider">
+	
     <div class="portfolio-body">
-		<p>Words<br>
-		</p>
+		<div class="two-column">
+			<div class="left-column">
+			<div class="role-header">Roles</div><br>
+			<i>Designer</i><br>
+			System / Level / Enemy / Character Design<br>
+			Combat / Content Design<br>
+			Gameplay Programmer<br>
+			Monetization / Live Ops<br>
+			UI Design
+			<div class="game-links">
+				<div class="role-header">Platform</div><br>
+				<a href="https://play.google.com/store/apps/details?id=com.tinytitanstudios.dashquest2&hl=en_US" target="_blank">Android</a>
+				 | 
+				<a href="https://apps.apple.com/us/app/dash-quest-2/id1479053547" target="_blank">iOS</a>
+			</div>
+			</div>
+
+			<div class="right-column">
+			<div class="role-header">Key Responsibilities</div><br>
+			
+			<strong>Core System Design</strong>
+			<ul>
+			<li>Player Progression systems (upgrades, skills, gear, and more)</li>
+			<li>Abilities, ability unlock system, and ability upgrade system
+			<li>Relic system, 50+ passive effects, daily mystery Relics
+			<li>XP and level system, Skill trees and 40+ passive skills to unlock</li>
+			<li>Gear unlock system and permanent bonuses for unlock progress</li>
+			<li>Wave-based spawning system for levels and raids</li>
+			</ul>
+			
+			<strong>Gameplay Design</strong>
+			<ul>
+			<li>140+ equippable pieces of gear and bonus effects</li>
+			<li>12 unique boss encounters</li>
+			<li>120+ enemies</li>
+			<li>70+ Levels</li>
+			<li>18 abilities with 30+ unique upgrades and multiple synergies/combos</li>
+			<li>Designing and adjusting player and enemy infinite scaling</li>
+			<li>FTUE / Tutorials</li>
+			<li>Designing, playtesting, and iterating all aspects gameplay and progression systems</li>
+			<li>UI layouts for the majority of the game</li>
+			</ul>
+			
+			<strong>Monetization and Live Ops</strong>
+			<ul>
+			<li>5 Live Ops Raids, 2 seasonal Raids</li>
+			<li>Live Ops and Monetization (daily activities and bonuses, IAP purchases, subscription system, seasonal content, weekend events)</li>
+			</ul>
+			</div>
+		</div>
+
+		<div class="video-container">
+		<iframe
+			src="https://www.youtube.com/embed/gy-BCMzALSY"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+			referrerpolicy="strict-origin-when-cross-origin">
+		</iframe>
+		</div>
+		<p>Dash Quest 2 is a level based ‘runner’ RPG that was a re-imagining of Dash Quest Heroes to be more mobile friendly. After I made a simple prototype to show of some gameplay changes and creating a pitch doc, I was given the opportunity to run a small team and create this mobile game.</p>		
+		<p>The timeline from pitch to full launch was around 4 months. We re-used a lot of visual and audio assets and some base code from Dash Quest Heroes to make the game.</p>
+		<p>Dash Quest 2 was later purchased by Trophy Games.</p>	
 		
-		<p>Words.</p>
+		<div class="portfolio-details">
+			<hr class="fade-divider">
+			<h4>Design and Development</h4>
+			<p>Dash Quest 2 was a lot of work, but also a lot of fun. This was the first time that I got to pitch an idea, have it be approved, and see it through from beginning to end.</p>
+			<p>For most of the production the team was: a producer, a programmer, and me. This project taught me a lot about time management, organization, and the value of having a pre-production phase. We had very little time to hit all of our milestones once we got running, so using that time efficiently was paramount to our success.</p>
+		</div>
 		
-		<p>
-		<ul>
-		<li>List item</li>
-		</ul>
-		</p>
-    </div>
+	  </div>
+
+      <button class="toggle-btn" onclick="toggleDetails(this)">Read More</button>
   </div>
   
 	<!-- DQ2 ENDS -->
@@ -482,22 +792,67 @@
 	
 	<div class="portfolio-item fade">
 		<div class="portfolio-header">
-		  <img src="Assets/empty.jpg" alt="Arena Stars">
+		  <img src="Assets/banner-arena-2.jpg" alt="Arena Stars">
 		  <h3>Arena Stars</h3>
 		</div>
+		<h5>Released January 2019 on Android, iOS and Steam</h5>
+
+		<div class="game-desc">Choose your Hero, build your Team and battle other players in the Arena Stars Universe in this action-packed 1v1 action MOBA!<br>
+		</div>
+		<hr class="fade-divider">
 
 		<div class="portfolio-body">
-			<p>Words<br>
-			</p>
+		
+		<div class="two-column">
+			<div class="left-column">
+			<div class="role-header">Roles</div><br>
+			<i>Designer</i><br>
+			Character Design<br>
+			Combat / Content Design<br>
+			Gameplay Programmer<br>
+			<div class="game-links">
+				<div class="role-header">Platform</div><br>
+				<a href="https://store.steampowered.com/app/1049950/Arena_Stars/" target="_blank">Steam</a>
+				 | Android | iOS
+			</div>
+			</div>
+
+			<div class="right-column">
+			<div class="role-header">Key Responsibilities</div><br>
 			
-			<p>Words.</p>
-			
-			<p>
+			<strong>Game Design</strong>
 			<ul>
-			<li>List item</li>
+			<li>Review and rebalancing for existing heroes, minions, spells</li>
+			<li>Designed 5 new heroes, 31 new minions, 11 new spells</li>
+			<li>'Hero Mission' system, 72 unique missions (8 per hero) and their rewards</li>
+			<li>Developed concepts and themes for 3 new ‘hero regions’</li>
+			<li>Additional programming for heroes, minions, and spells</li>
+			<li>Additional UI screen layouts</li>
 			</ul>
-			</p>
+			</div>
 		</div>
+
+		<div class="video-container">
+		<iframe
+			src="https://www.youtube.com/embed/ZTttpsrxsaE"
+			title="YouTube video player"
+			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+			allowfullscreen
+			referrerpolicy="strict-origin-when-cross-origin">
+		</iframe>
+		</div>
+			<p>Arena Stars was nearing launch when I joined the project. My roles were to fill out the roster of existing content, design new content and systems for post-launch, and playtesting/iterate/balancing the existing content.</p>
+		<div class="portfolio-details">
+			<hr class="fade-divider">
+			<h4>Design and Development</h4>
+			<p>Before starting on new content I reviewed the existing heroes, minions, and spells, to make sure that each of them served an identifiable mechanical purpose / had their own identity. In some instances we had units that were nearly identical, such as ranged units with simple (and similar) behaviour of moving to a position and shooting.</p>
+<p>Major reworks were outside of scope, but relatively simple changes like having one unit throw a projectile that bounced to other nearby targets, changing another to have a slow moving projectile that damaged enemies on the way to its target, and another that had a shorter range but pushed enemies backwards, along with stat tweaks, gave the units more varied use cases in different decks</p>
+		</div>
+		
+	  </div>
+
+      <button class="toggle-btn" onclick="toggleDetails(this)">Read More</button>
+
 	  </div>
   
 	<!-- ARENA STARS ENDS -->
@@ -514,7 +869,7 @@
 			<p>Words<br>
 			</p>
 			
-			<p>Words.</p>
+			<p>1v1 real-time arena battler</p>
 			
 			<p>
 			<ul>
@@ -606,5 +961,6 @@
 </div>
 <script src="LB.js" defer></script>
 
+</div>
 </body>
 </html>
