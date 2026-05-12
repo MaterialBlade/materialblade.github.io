@@ -195,6 +195,7 @@
       margin-top: 15px;
     }
 
+/*
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -202,17 +203,21 @@
       margin: 0 auto;
       gap: 20px;
     }
-
     @media (min-width: 900px) {
       .projects-grid {
         grid-template-columns: repeat(2, 1fr);
       }
     }
-
+*/
     .project {
       border: 1px solid rgba(256,256,256,0.2);
       padding: 10px;
+	  margin: 10px;
     }
+	
+	.project h2 {
+		font-size: 1.2em;
+	}
 
     .project img {
       width: 100%;
@@ -968,54 +973,79 @@
 
     <div class="project fade">
 		<h2>Spirit Vale Map Design</h2>
-		<iframe
-			src="https://www.youtube.com/embed/O-eHcQypae0"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowfullscreen
-			referrerpolicy="strict-origin-when-cross-origin">
-		</iframe>
-		<p>I contributed some maps and other design input to the indie MMORPG Spirit Vale.</p>
+		<div class="two-column">
+			<div class="left-column">
+			<iframe
+				src="https://www.youtube.com/embed/O-eHcQypae0"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+				referrerpolicy="strict-origin-when-cross-origin">
+			</iframe>
+			</div>
+			<div class="right-column">
+				<p>I contributed some maps and other design input for the indie MMORPG Spirit Vale.</p>
+				<p>Maps were made using Unity's terrain system and asset packs. Pretty fun learning project. It took me around 8 hours to finish one map while I was learning the ins and outs.</p>
+			</div>
+		</div>
     </div>
 	
 	<div class="project fade">
 		<h2>3D Auto Battler</h2>
-		<iframe
-			src="https://www.youtube.com/embed/yLT3R5otlqE"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowfullscreen
-			referrerpolicy="strict-origin-when-cross-origin">
-		</iframe>
-		<p>Prototype auto-battler combat system, converted from a 2D auto-battler system I had made previously and using some assets from another project.</p>
-		<p>I basically rewrote the code from scratch to be easier to work with and to try out some new stuff like characters being pushed around on the grid, and the position on the grid impacting what actions a character can do.</p>
+		<div class="two-column">
+			<div class="left-column">
+			<iframe
+				src="https://www.youtube.com/embed/yLT3R5otlqE"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+				referrerpolicy="strict-origin-when-cross-origin">
+			</iframe>
+			</div>
+			<div class="right-column">
+				<p>Prototype auto-battler combat system, converted from a 2D auto-battler system I had made previously and using some assets from another project.</p>
+				<p>I basically rewrote the code from scratch to be easier to work with and to try out some new stuff like characters being pushed around on the grid, and the position on the grid impacting what actions a character can do.</p>
+			</div>
+		</div>
     </div>
-
+	
 	<div class="project fade">
 		<h2>Super M*rio Online RPG</h2>
-		<iframe
-			src="https://www.youtube.com/embed/EgSHS8YKfBM"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowfullscreen
-			referrerpolicy="strict-origin-when-cross-origin">
-		</iframe>
-		<p>Passion project that was my introduction to more complex programming. It's a front-end client that connects to the back-end of an MMORPG emulator. The emulator was customized a bit to play like an online version of Super Mario RPG.</p>
-		<p>The client made in Unity and written in C#. Lots of stuff to learn like properly networking a game, dealing with packets, threading, pathfinding, and lots more. If I could have gotten paid to work on it, it could have been a full time job.</p>
-		<p>The back-end emulator was written in C++ which I was just knowledgable enough with to get it to do what I want and not crash.</p>
+		<div class="two-column">
+			<div class="left-column">
+			<iframe
+				src="https://www.youtube.com/embed/EgSHS8YKfBM?t=60"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+				referrerpolicy="strict-origin-when-cross-origin">
+			</iframe>
+			</div>
+			<div class="right-column">
+				<p>Passion project that was my introduction to more complex programming. It's a front-end client that connects to the back-end of an MMORPG emulator. The emulator was customized a bit to play like an online version of Super Mario RPG.</p>
+				<p>The client made in Unity and written in C#. Lots of stuff to learn like properly networking a game, dealing with packets, threading, pathfinding, and lots more. If I could have gotten paid to work on it, it could have been a full time job.</p>
+				<p>The back-end emulator was written in C++ which I was just knowledgable enough with to get it to do what I want and not crash.</p>
+			</div>
+		</div>
     </div>
 	
 	<div class="project fade">
 		<h2>Spooky Tower Defense</h2>
-		<iframe
-			src="https://www.youtube.com/embed/yLT3R5otlqE"
-			title="YouTube video player"
-			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-			allowfullscreen
-			referrerpolicy="strict-origin-when-cross-origin">
-		</iframe>
-		<p>My first foray into game design and programming. Started out as a vehicle for making 3D characters but I ended up really enjoying the design side.</p>
+		<div class="two-column">
+			<div class="left-column">
+			<iframe
+				src="https://www.youtube.com/embed/7s4zOo26sQI?t=166"
+				title="YouTube video player"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+				referrerpolicy="strict-origin-when-cross-origin">
+			</iframe>
+			</div>
+			<div class="right-column">
+				<p>My first foray into game design and programming. Started out as a vehicle for making 3D characters but I ended up really enjoying the design side.</p>
 		<p>It was good as a learning project, but as a game it wasn't all that fun.</p>
+			</div>
+		</div>
     </div>
 
   </div>
@@ -1029,7 +1059,8 @@
     <a href="#">Email</a>
   </p>
 </section>
-
+<br>
+<br>
 <button id="toTop" onclick="scrollToTop()">Top</button>
 
 <script>
