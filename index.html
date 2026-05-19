@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kyle Wolf Portfolio</title>
+  <title>Kyle Wolf - Game Designer</title>
+
+	<link rel="icon" type="image/x-icon" href="Assets/fav-icon.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,12 +35,12 @@
     }
 	
 	.content {
-		width: 860px;
+		width: 960px;
 		margin: 0 auto;
 		color: white;
 		/*background: #18191d;*/
 		background: #20222d;
-		font-size: 0.8em; /* was 9 */
+		font-size: 0.85em; /* was 9 */
 		/*min-height: 100vh;*/
 	}
 
@@ -59,7 +61,7 @@
 	
 	h2 {
 		text-align: center;
-		font-size: 1.5em;
+		font-size: 2.5em;
 	}
 	
 	h3 {
@@ -130,7 +132,7 @@
     }
 
     .content > section:first-of-type {
-      padding-top: 120px;
+      /*padding-top: 120px;*/
     }
 
     .hero {
@@ -138,6 +140,7 @@
 		align-items: center;
 		justify-content: center;
 		gap: 40px;
+		min-height: 500px;
 		/*font-size: 1.0em;*/
     }
 
@@ -159,15 +162,27 @@
 	.hero-img:hover img {
 	  transform: scale(1.35);
 	}
+	
+	.hero-txt {
+		max-width: 600px;
+		text-align: center;
+		font-size: 1.3em;
+		/*line-height: 170%;*/
+	}
 
     /* NEW PORTFOLIO LAYOUT */
     .portfolio-item {
-      margin-bottom: 60px;
+      margin-bottom: 50px;
     }
+	
+	.portfolio-item h2 {
+		font-size: 1.5em;
+		text-align: left;
+	}
 
     .portfolio-header img {
       width: 100%;
-      height: 200px;
+      height: 175px; /* was 200 */
       object-fit: cover;
       border-radius: 8px;
     }
@@ -192,9 +207,9 @@
 
 	  /* fallback */
 	  text-shadow:
-		-1px -1px 0 rgba(0,0,0,0.3),
-		 1px -1px 0 rgba(0,0,0,0.3),
-		-1px  1px 0 rgba(0,0,0,0.3),
+		-1px -1px 0 rgba(0,0,0,0.8),
+		 1px -1px 0 rgba(0,0,0,0.8),
+		-1px  1px 0 rgba(0,0,0,0.8),
 		 2px  2px 0 rgba(0,0,0,1);
 		}
 
@@ -228,7 +243,8 @@
 	}
 
     .project img {
-      width: 100%;
+      /*width: 100%;*/
+	  max-width: 300px;
     }
 
     .fade {
@@ -252,6 +268,20 @@
 		transparent,
 		/*rgba(0, 0, 0, 0.2),*/
 		rgba(256, 256, 256, 0.2),
+		transparent
+	  );
+	}
+	
+	.dark-divider {
+	  border: none;
+	  height: 3px;
+	  margin: 0 0 50px;
+
+	  background: linear-gradient(
+		to right,
+		transparent,
+		/*rgba(0, 0, 0, 0.2),*/
+		rgba(14, 14, 19, 0.8),
 		transparent
 	  );
 	}
@@ -345,7 +375,8 @@
 	}
 	
 	.left-column {
-		width: 300px;
+		min-width: 300px;
+		width: 45%;
 		/*background: #FFDDDD;*/
 		/*padding: 10px;*/
 		box-sizing: border-box;
@@ -397,9 +428,41 @@
 		color: #9dccff;
 		text-decoration: underline;
 	}
+	
+	
+	/* ----- ANIMATED LINE BS (not used) ------*/
+	
+	.animated-link {
+	  position: relative;
+	  text-decoration: none;
+	  color: #111;
+	}
+
+	.animated-link::after {
+	  content: "";
+	  position: absolute;
+	  left: 0;
+	  bottom: -2px;
+
+	  width: 100%;
+	  height: 1px;
+	  background: currentColor;
+
+	  transform: scaleX(0);
+	  transform-origin: left;
+	  transition: transform 0.3s ease;
+	}
+
+	.animated-link:hover::after,
+	.animated-link:focus::after {
+	  transform: scaleX(1);
+	}
+	
+	/* ---------------------------- */
   </style>
   
-  <link rel="stylesheet" href="LB.css">
+  <link rel="stylesheet" href="LB2.css">
+  <script src="LB2.js" defer></script>
 </head>
 <body>
 
@@ -415,13 +478,33 @@
 </header>
 <div class="content">
 
+<noscript>
+  <div style="
+    background: #ffdddd;
+    color: #900;
+    padding: 12px;
+    text-align: center;
+    font-family: sans-serif;
+    border-bottom: 1px solid #cc0000;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+  ">
+    This website works requires JavaScript to be enabled. Please enable JavaScript in your browser settings.
+  </div>
+</noscript>
+
 <section class="hero">
 	<div class="hero-img">
 	  <img src="Assets/me.png" alt="Yea that's me">
 	</div>
-  <div>
-    <h1>Oh hi, I'm Kyle</h1>
-    <p>Description of me goes here. Words words words.</p>
+  <div class="hero-txt">
+    <h1>Oh hi, I'm Kyle<img src="Assets/fav-icon.png" height="32px" alt="Canadian!"></h1>
+    <p>I'm a game designer with 9 years of industry experience. I love working on every aspect of game development, with designing gameplay systems and content for engaging and thrilling experiences is my favourite aspects.</p>
+	<p>Check out some of the games I've worked on below!</p>
+	<p>
+	<a href="https://www.linkedin.com/in/kyle-wolf-ca/" target="_blank" ><img src="Assets/logo-linkedIn.png" alt="LinkedIn" width="32"></a>
+	</p>
   </div>
 </section>
 
@@ -431,12 +514,30 @@
 	<!-- EK BEGINS -->
 
   <div class="portfolio-item fade">
+	<h2>Ember Knights</h2>
     <div class="portfolio-header">
       <img src="Assets/banner-EK.jpg" alt="Ember Knights">
-      <h3>Ember Knights</h3>
+      <!-- <h3>Ember Knights</h3> -->
     </div>
 	<h5>Early Access April 2022, 1.0 Release July 2023<br>
 	Released on Steam, Nintendo Switch, Xbox, Playstation</h5>
+
+<!--
+
+		<div class="gallery">
+		  <img
+			src="Assets/EK.jpg"
+			data-full="Assets/kfz.jpg"
+			data-group="a"
+		  />
+		  
+		   <img
+			src="Assets/EK.jpg"
+			data-full="Assets/kfz-2.png"
+			data-group="a"
+		  />
+
+-->
 
 	<div class="game-desc">Pixel art hack-and-slash action roguelite for 1-4 players. Take on the role of the Ember Knights who are fighting to restore the Ember Tree and prevent the evil Praxis from destroying the universe.<br>
 	</div>
@@ -461,13 +562,24 @@
 			</div>
 			
 			<div class="video-container">
-			<iframe
+			<!-- <iframe
 				src="https://www.youtube.com/embed/5iF9pBmZZr4"
 				title="YouTube video player"
 				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
 				allowfullscreen
 				referrerpolicy="strict-origin-when-cross-origin">
-			</iframe>
+			</iframe> -->
+			
+			<iframe
+			  width="560"
+			  height="315"
+			  src="https://www.youtube.com/embed/5iF9pBmZZr4&autoplay=1"
+			  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/5iF9pBmZZr4?autoplay=1><img src=https://img.youtube.com/vi/5iF9pBmZZr4/hqdefault.jpg><span>▶</span></a>"
+			  frameborder="0"
+			  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+			  allowfullscreen
+			></iframe>
+			
 			</div>
 			
 			</div>
@@ -481,6 +593,7 @@
 			<li>Weapon, Skill, and Relic unlock systems</li>
 			<li>'Trigger and Effect' Relic combo system and 37+ Relics</li>
 			<li>Weapon Modification system to customize weapons, 45+ modifications, and the gameplay challenges to acquire their unlock currency</li>
+			<li>Enemy dynamic spawning logic
 			<li>'Praxis' system where the main villain follows the player through their run, summons more challenges, verbally taunts them, and more</li>
 			</ul>
 
@@ -503,6 +616,7 @@
 			<li>Story progression, character and dialogue writing, and blocking out all the cutscenes</li>
 			<li>Collaborated on the settings / themes for the 6 areas of the game</li>
 			</ul>
+
 			</div>
 		</div>
 
@@ -512,60 +626,245 @@
       <div class="portfolio-details">
 		<hr class="fade-divider">
 		<h4>Big Bosses</h4>
-        <p>My favourite part of working on Ember Knights was designing the Boss encounters. They allowed for more engaging and elaborate encounters, to test the player on various mechanics they’d seen in the level preceding the boss, to hit them with something new, and to give each Boss their own personality and identity.</p>
-		<p>I wanted each boss fight to have a balance of actions that fit their theme, that tested the player’s skills, and had a level of spectacle to them. I was okay with an action that was relatively easy to dodge if it looked cool, the same as if it were an action that required the player to really pay attention to cues.</p>
-		<p>I also wanted to make sure that the difficulty didn’t come from simply throwing more ‘stuff’ at the player and overwhelming them. Positioning, spacial awareness, reflexes, timing, all of it was important. Once I got a boss design in a spot I was happy with I would playtest for balance: making sure there was appropriate anticipation on every attack, that the zones where players took damage were fair, that visual cues and audio gave players the required information. If I could beat a boss without getting hit once, I felt it was in a good spot.</p>
+        <p>My favourite part of working on Ember Knights was designing the Boss encounters since they allowed for more elaborate encounters. I wanted each boss fight to have a balance of actions that fit their theme, that tested the player’s skills, and had a level of spectacle to them.</p>
+		<p>Each boss would end up with a good mix of actions that required the player to pay attention and ones that were there to cool and impactful.</p>
+		<p>Playtesting and balance came down to making sure every attack was fair, that it had appropriate cues, anticipation, and collision, then tweaking values like damage, speed, duration, etc. When the values were adjusted and I could beat the boss without getting hit, I felt it was in a good spot.</p>
+		
+		<div class="gallery">
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-ghostboss.png"
+			data-group="ek-bossgallery"
+			data-caption="Some attack mockups for the Area 3 Phantom Boss. Bosses had 1 base version and two variants with different attacks, patterns, stats, and more."
+		  >
+			<img src="Assets/ek-ghostboss-thumb.jpg">
+		  </div>
+
+		  <div
+			class="gallery-item"
+			data-type="video"
+			data-full="Assets/videos/ph-chains.mp4"
+			data-group="ek-bossgallery"
+			data-caption="Chain attack for one of the Phantom Boss variants."
+		  >
+			<img src="Assets/ph-chains-thumb.jpg">
+		  </div>
+
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-praxisboss2.png"
+			data-group="ek-bossgallery"
+			data-caption="Sketches for how the final* Boss fight would progress through multiple arenas and sequences."
+		  >
+			<img src="Assets/ek-praxisboss2-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-praxisboss.png"
+			data-group="ek-bossgallery"
+			data-caption="Final version of the in-game arena. The fight starts in the lower chamber, breaks through the back wall, across a broken pathway, and ends up in the final chamber."
+		  >
+			<img src="Assets/ek-praxisboss-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-iceking-attacks.png"
+			data-group="ek-bossgallery"
+			data-caption="Attack mockups for the Ice King bosses."
+		  >
+			<img src="Assets/ek-iceking-attacks-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="video"
+			data-full="Assets/videos/ik-ring.mp4"
+			data-group="ek-bossgallery"
+			data-caption="Ice King variant's 'Polar Vortex' attack that tries to push players into the spikes along the walls."
+		  >
+			<img src="Assets/ik-ring-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="video"
+			data-full="Assets/videos/IK-swordring.mp4"
+			data-group="ek-bossgallery"
+			data-caption="Another variant's attack. Drops swords in a ring around it then sends them outwards."
+		  >
+			<img src="Assets/IK-swordring-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="video"
+			data-full="Assets/videos/av-rockets.mp4"
+			data-group="ek-bossgallery"
+			data-caption="Another clip of boss gameplay showing off some attacks and room mechanics. This boss encounter had a lot of personality and was really fun to design."
+		  >
+			<img src="Assets/ek-frogboss-thumb.jpg">
+		  </div>
+		  
+		</div>
 
 		<h4>Design Challenges</h4>
-		<p>The project started out as an action RPG focused on story and with gameplay closer to Diablo. We determined the scope was too big and scaled it way back, taking the combat from our working prototype and starting to mold it into what eventually became Ember Knights</p>
-		<p>The most challenging time for Ember Knights was after we had launched our first public demo. Our initial ideas for level design, meta progression, and in-run progression weren’t received as well as we’d hoped and ultimately weren’t very engaging.
+		The most challenging time for Ember Knights was after we had launched our first public demo. We identified some pretty significant issues to solve:
 		<ul>
-			<li>Levels were randomly generated, consisting of rooms that were the same size but with different layouts. The game felt cramped, the actual navigation of a level felt slow and tedious, and the rewards for completing rooms weren’t satisfying</li>
-			<li>Meta progression consisted of a large ‘unlock web’ -- like an actual spider web -- where the player would unlock everything in the game: more items for during the run, passive stat bonuses, new weapons, new skills, etc. This system was clunky to use, the passive stat bonuses didn’t have a meaningful impact on gameplay, and actually unlocking acutally impactful items like new weapons or skills was needlessly convoluted.</li>
-			<li>The in-run progression consisted of collected Relics that mostly gave passive stat bonuses and limited noticeable effects.</li>
+		<li>All player progression was in a single system and was too constrictive for players and for design</li>
+		<li>Our in-run progression from Relics didn't provide enough meaningful gameplay changes and weren't fun</li>
+		<li>Level exploration was tedious, and combat rooms were cramped and very samey, and they didn't support 4 players very well</li>
 		</ul>
-		</p>
-		<p>To address the level design issue we scrapped the dungeon-crawler aspect and adopted a linear approach where the player completes a room, chooses 1 of 2 rewards for the next room, then moves forward. We made sure that every reward type was useful to the player, and always pitted similarly tiered rewards against each other. This new flow addressed the tedium or exploring and backtracking on a map, allowed us to design individual rooms of any size or layout, and kept the pacing of the gameplay high</p>
-		<p>To address meta progression issues we split the single ‘upgrade web’ into several new individual systems:
-			<ul>
-			<li>To permanently increase their power players would collect and spend meta currency. The passive stat bonuses were all replaced with ‘choose 1 of 3’ upgrades with more impactful effects, like dealing more damage when below an HP threshold or rerolling random rewards</li>
-			<li>To unlock new in-run Relics they would need to defeat cumulatively larger numbers of enemies and return to the staging area</li>
-			<li>To unlock new Skills they would need to defeat a level’s Miniboss or Boss and return to the staging area</li>
-			<li>To unlock new weapons they only needed to collect (but not spend) more meta currency</li>
-			</ul>
-			The player would now have multiple tracks of unlocks that they were progressing, so they would almost always have 1 new thing each time they returned to the staging area</p>
-		<p>To address the in-run Relic issue I wanted to focus on noticeable effects and gameplay changes, a ‘trigger and effect’ system where when the player did ‘trigger X’, ‘effect Y’ would always happen. The system would also allow for the ‘effect’ to also act as a ‘trigger’, creating chain effects depending on the items the player had. This updated system would give the player immediate satisfaction for triggering an effect, it would allow them to customize their builds to make extended or ‘broken’ combos, and it added more replayability to try and find the most broken combos</p>
+
+		<p>For player progression we broke it out into multiple systems. Permanent bonuses could be purchased/upgrades with a meta currency, divided into tiers where only 1 bonus would can be active at a time. New Relics -- in-run progression -- were automatically unlocked via defeating cumulative enemies. New abilities were unlocked by defeating MiniBosses and Bosses. New weapons were unlocked automatically by accumulating the meta currency, but didn't require it to be spent. These changes let us better control the pacing and order of unlocks, and also have the player multiple goals to work towards at one time.</p>
+
+		<div class="gallery">
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-unlocktree.png"
+			data-group="ek-progress"
+			data-caption="Original unlock tree before the rework. Every weapon, relic, skill (spell), and player bonus would have been acquired from this screen/system."
+		  >
+			<img src="Assets/ek-unlocktree-thumb.jpg">
+		  </div>
+
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-embertree-sketch.png"
+			data-group="ek-progress"
+			data-caption="Sketch and mockup for the redesigned player bonus system. Bonuses could be upgraded multiple times for increased effect. Only 1 bonus from each tier (circle) equipped at a time so player would customize their own loadouts."
+		  >
+			<img src="Assets/ek-embertree-sketch.png">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-embertree-final.png"
+			data-group="ek-progress"
+			data-caption="Final in-game example of the player bonuses screen. The currency for upgrades would be acquired just from playing the game, clearing rooms, defeating bosses and enemies, and more."
+		  >
+			<img src="Assets/ek-embertree-final.png">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-relicprogress.png"
+			data-group="ek-progress"
+			data-caption="New Relic unlocks were changed to be dropped as items during a run after defeating a cumulative number of enemies (though some could be acquired from other methods). An NPC in the main hub would keep track of when the next Relic would drop."
+		  >
+			<img src="Assets/ek-relicprogress.png">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-skilltabs.png"
+			data-group="ek-progress"
+			data-caption="New Skill unlocks were changed to be items dropped by bosses and minibosses. An NPC in the main hub would keep track of which items still needed to be acquired."
+		  >
+			<img src="Assets/ek-skilltabs.png">
+		  </div>
+		</div>
+
+		<p>Relics mostly gave passive stat boosts to the player, which didn't noticeably affect gameplay. I redesigned their functionality to be more of a 'trigger and effect' system, where whenever the trigger was met, the effect happened. An effect could also act as a trigger, meaning Relics could combo with each other and make longer chains of effects. This added more replayability to make different Relic builds and look for broken combos.</p>
+		
+		<div class="gallery">
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/old-relics.png"
+			data-group="ek-relics"
+			data-caption="Relic designs before the system was reworked. They were primarily stat increases or chances for effects to happen."
+		  >
+			<img src="Assets/old-relics-thumb.jpg">
+		  </div>
+
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/new-relics.png"
+			data-group="ek-relics"
+			data-caption="Reworked trigger + effect system and 3 pairs of relics. The two Relics at the top combo ''Whenever you dodge, you CRIT'' and ''Whenever you CRIT your Skills refresh''"
+		  >
+			<img src="Assets/new-relics-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/new-relics-2.png"
+			data-group="ek-relics"
+			data-caption="More updated relics that build around the CRIT trigger and each other."
+		  >
+			<img src="Assets/new-relics-2-thumb.jpg">
+		  </div>
+		</div>
+
+		<p>The level exporation we ended up scrapping entirely. Instead of a dungeon-crawling style map, we went with a linear room-to-room approach where the player would choose from 1 of 2 rewards for their next room and the game determines what the layout and enemies are. Every room would have a reward now, where previously some rooms didn't and were just paths on the map.</p>
+		<p>We remade nearly all of the combat rooms since they could now be whatever size and layout we wanted them to be. We could also now have different rooms sizes based on the number of players in the game (up to 4 players) since the rooms didn't need to fit into a grid anymore.</p>
+		
 		<h4>Responsibilities and Creative Freedom</h4>
 		<p>On Ember Knights I was given more responsibilities and also was allowed to stretch my creative muscles in various disciplines outside of design:
 		<ul>
 			<li>During the Early Access period I managed the content to be developed, worked with a Producer to manage timelines and milestones, had final sign off on completed items, delegated junior designers, provided feedback and direction for artists, programmers, and audio designers</li>
-			<li>Bosses in Ember Knights took a lot of art resources to bring to life, so it was very important that we got to test out mechanics and ideas before they got to an art pass. To help with this I made very basic animated 3D models and converted them into sprites that we could get in game and hooked up so we could playtest them as soon as possible</li>
-			<li>Giving reference and feedback to the artists for level designs, character and enemy designs, animations, UI designs, icons, and more</li>
-			<li>I worked directly with our external sound designers and composers</li>
-			<li>I took over handling the main narrative, wrote all the dialogue for the game, storyboarded all the in-game cutscenes</li>
+			<li>To test out boss concepts quicker I made basic animated 3D models and converted them to sprites. We could get them hooked up, playable, and tested in game without taking up resources from the Art team
+			</li>
+			<li>Gave reference and feedback to the artists for level designs, character and enemy designs, animations, UI designs, icons, and more</li>
+			<li>Took over handling the main narrative, wrote all the dialogue for the game, storyboarded all the in-game cutscenes</li>
+			<li>Worked directly with our external sound designers and composers</li>
 		</ul>
 		</p>
 		
 		<div class="gallery">
-		  <img
-			src="Assets/EK.jpg"
-			data-full="Assets/kfz.jpg"
-			data-group="a"
-		  />
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/praxis-3d.png"
+			data-group="ek-bonus"
+			data-caption="To speed up being able to implement and test bosses in game I would make simple 3D models and animations then convert them to sprites."
+		  >
+			<img src="Assets/praxis-3d-thumb.jpg">
+		  </div>
 		  
-		   <img
-			src="Assets/EK.jpg"
-			data-full="Assets/kfz-2.png"
-			data-group="a"
-		  />
-
-		  <!-- <img src="Assets/EK.png" data-group="a" />
-		  <img src="Assets/kfz.jpg" data-group="a" />
-		  <img src="Assets/kfz-2.png" data-group="a" />
-
-		  <img src="Assets/LoS.png" data-group="b" />
-		  <img src="Assets/tiny-rails.jpg" data-group="b" />
-		  -->
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-storyboard.png"
+			data-group="ek-bonus"
+			data-caption="I blocked out all the in-game cutscenes and some of the animated cinematics using storyboards."
+		  >
+			<img src="Assets/ek-storyboard-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-widow-concept.png"
+			data-group="ek-bonus"
+			data-caption="Rough concept for the Boss of the first area, designed to be the 'mother' of the big bug enemies. The pink and yellow spider was from a previous version of project that didn't fit the theme anymore."
+		  >
+			<img src="Assets/ek-widow-concept-thumb.jpg">
+		  </div>
+		  
+		  <div
+			class="gallery-item"
+			data-type="image"
+			data-full="Assets/ek-widow-final.png"
+			data-group="ek-bonus"
+			data-caption="Final in-game example of the boss. The sprite was not made by me."
+		  >
+			<img src="Assets/ek-widow-final.png">
+		  </div>
+		  
 		</div>
 		
 	  </div>
@@ -575,13 +874,16 @@
   </div>
   
 	<!-- EK ENDS -->
+	
+	<hr class="dark-divider">
   
 	<!-- STARKADIA BEGINS -->
 	
 	<div class="portfolio-item fade">
+	<h2>Legends of Starkadia</h2>
     <div class="portfolio-header">
       <img src="Assets/banner-los.jpg" alt="Legends of Starkadia">
-      <h3>Legends of Starkadia</h3>
+      <!-- <h3>Legends of Starkadia</h3> -->
     </div>
 
 	<div class="game-desc">A quirky RPG with open world exploration, turn-based combat, and timed actions. After being mysteriously teleported to an alien world, mild-mannered teen Mikey finds himself in the middle of an interstellar war. It's up to his team of unlikely heroes to assist the resistance to restore peace to the Starkadian galaxy.<br>
@@ -600,6 +902,20 @@
 				<div class="role-header">Platform</div><br>
 				<a href="https://store.steampowered.com/app/2618160/Legends_of_Starkadia/" target="_blank">Steam</a>
 			</div>
+			
+			<div class="video-container">
+			<iframe
+			  width="560"
+			  height="315"
+			  src="https://www.youtube.com/embed/tvr2i2Zy580&autoplay=1"
+			  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/tvr2i2Zy580?autoplay=1><img src=https://img.youtube.com/vi/tvr2i2Zy580/hqdefault.jpg><span>▶</span></a>"
+			  frameborder="0"
+			  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+			  allowfullscreen
+			></iframe>
+			
+			</div>
+			
 			</div>
 
 			<div class="right-column">
@@ -629,6 +945,7 @@
 			<li>Quest lines for the main story, side quests for various worlds</li>
 			</ul>
 			</div>
+
 		</div>
 		
 		<p>My time on Starkadia was mostly spent exploring ideas for turn-based combat mechanics, ideas for what the ‘overworld’ experience would be, some initial progression mechanics, and narrative work regarding the plot, the characters, the various worlds, and other pieces of lore.</p>
@@ -638,13 +955,16 @@
   </div>
   
 	<!-- STARKADIA ENDS -->
+	
+	<hr class="dark-divider">
   
 	<!-- KFZ BEGINS -->
   
   <div class="portfolio-item fade">
+	<h2>Kung Fu Z</h2>
     <div class="portfolio-header">
-      <img src="Assets/banner-kfz.jpg" alt="Kung Fu Z">
-      <h3>Kung Fu Z</h3>
+      <img src="Assets/banner-kfz4.jpg" alt="Kung Fu Z">
+      <!-- <h3>Kung Fu Z</h3> -->
     </div>
 	  <h5>Released July 2018 on Android, iOS</h5>
 
@@ -667,14 +987,16 @@
 				<a href="https://apps.apple.com/us/app/kung-fu-zombie/id1380910604" target="_blank">iOS</a>
 			</div>
 			
-			<div class="video-container">
+			<div class="video-container">			
 			<iframe
-				src="https://www.youtube.com/embed/6BbKcJb9Tsk"
-				title="YouTube video player"
-				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-				allowfullscreen
-				referrerpolicy="strict-origin-when-cross-origin">
-			</iframe>
+			  width="560"
+			  height="315"
+			  src="https://www.youtube.com/embed/6BbKcJb9Tsk&autoplay=1"
+			  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/6BbKcJb9Tsk?autoplay=1><img src=https://img.youtube.com/vi/6BbKcJb9Tsk/hqdefault.jpg><span>▶</span></a>"
+			  frameborder="0"
+			  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+			  allowfullscreen
+			></iframe>
 			</div>
 			
 			</div>
@@ -729,12 +1051,15 @@
   
 	<!-- KFZ ENDS -->
 	
+	<hr class="dark-divider">
+	
 	<!-- DQ2 BEGINS -->
 	
 	<div class="portfolio-item fade">
+	<h2>Dash Quest 2</h2>
     <div class="portfolio-header">
       <img src="Assets/banner-dq2.jpg" alt="Dash Quest 2">
-      <h3>Dash Quest 2</h3>
+      <!-- <h3>Dash Quest 2</h3> -->
     </div>
 	<h5>Released October 2019 on Android, iOS</h5>
 	
@@ -759,14 +1084,16 @@
 				<a href="https://apps.apple.com/us/app/dash-quest-2/id1479053547" target="_blank">iOS</a>
 			</div>
 			
-			<div class="video-container">
+			<div class="video-container">				
 				<iframe
-					src="https://www.youtube.com/embed/gy-BCMzALSY"
-					title="YouTube video player"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-					referrerpolicy="strict-origin-when-cross-origin">
-				</iframe>
+				  width="560"
+				  height="315"
+				  src="https://www.youtube.com/embed/gy-BCMzALSY&autoplay=1"
+				  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/gy-BCMzALSY?autoplay=1><img src=https://img.youtube.com/vi/gy-BCMzALSY/hqdefault.jpg><span>▶</span></a>"
+				  frameborder="0"
+				  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				  allowfullscreen
+				></iframe>
 			</div>
 			</div>
 
@@ -804,7 +1131,7 @@
 			</div>
 		</div>
 		
-		<p>Dash Quest 2 is a level based ‘runner’ RPG that was a re-imagining of Dash Quest Heroes to be more mobile friendly. After I made a simple prototype to show of some gameplay changes and creating a pitch doc, I was given the opportunity to run a small team and create this mobile game.</p>		
+		<p>Dash Quest 2 is a level based ‘runner’ RPG that was a re-imagining of Dash Quest Heroes to be more mobile friendly. After I made a simple prototype to show off some gameplay changes and creating a pitch doc, I was given the opportunity to run a small team and create this mobile game.</p>		
 		<p>The timeline from pitch to full launch was around 4 months. We re-used a lot of visual and audio assets and some base code from Dash Quest Heroes to make the game.</p>
 		<p>Dash Quest 2 was later purchased by Trophy Games.</p>	
 		
@@ -822,12 +1149,15 @@
   
 	<!-- DQ2 ENDS -->
 	
+	<hr class="dark-divider">
+	
 	<!-- ARENA STARS BEGINS -->
 	
 	<div class="portfolio-item fade">
+		<h2>Arena Stars</h2>
 		<div class="portfolio-header">
 		  <img src="Assets/banner-arena-2.jpg" alt="Arena Stars">
-		  <h3>Arena Stars</h3>
+		  <!-- <h3>Arena Stars</h3> -->
 		</div>
 		<h5>Released January 2019 on Android, iOS and Steam</h5>
 
@@ -852,12 +1182,14 @@
 			
 			<div class="video-container">
 				<iframe
-					src="https://www.youtube.com/embed/ZTttpsrxsaE"
-					title="YouTube video player"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-					referrerpolicy="strict-origin-when-cross-origin">
-				</iframe>
+				  width="560"
+				  height="315"
+				  src="https://www.youtube.com/embed/ZTttpsrxsaE&autoplay=1"
+				  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/ZTttpsrxsaE?autoplay=1><img src=https://img.youtube.com/vi/ZTttpsrxsaE/hqdefault.jpg><span>▶</span></a>"
+				  frameborder="0"
+				  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				  allowfullscreen
+				></iframe>
 			</div>
 			
 			</div>
@@ -893,12 +1225,15 @@
   
 	<!-- ARENA STARS ENDS -->
 	
+	<hr class="dark-divider">
+	
 	<!-- DQH BEGINS -->
 	
 	<div class="portfolio-item fade">
+		<h2>Dash Quest Heroes</h2>
 		<div class="portfolio-header">
 		  <img src="Assets/banner-dqh.jpg" alt="Dash Quest Heroes">
-		  <h3>Dash Quest Heroes</h3>
+		  <!-- <h3>Dash Quest Heroes</h3> -->
 		</div>
 		<h5>Released December 2017 on Android and iOS</h5>
 
@@ -922,13 +1257,15 @@
 				</div>
 				
 				<div class="video-container">
-				<iframe
-					src="https://www.youtube.com/embed/brl9AjB89eQ"
-					title="YouTube video player"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-					allowfullscreen
-					referrerpolicy="strict-origin-when-cross-origin">
-				</iframe>
+					<iframe
+					  width="560"
+					  height="315"
+					  src="https://www.youtube.com/embed/brl9AjB89eQ&autoplay=1"
+					  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%}img,span{position:absolute;width:100%;top:0;bottom:0;margin:auto}span{height:1.5em;text-align:center;font:48px/1.5 sans-serif;color:white;text-shadow:0 0 0.5em black}</style><a href=https://www.youtube.com/embed/brl9AjB89eQ?autoplay=1><img src=https://img.youtube.com/vi/brl9AjB89eQ/hqdefault.jpg><span>▶</span></a>"
+					  frameborder="0"
+					  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+					  allowfullscreen
+					></iframe>
 				</div>
 				
 				</div>
@@ -984,27 +1321,27 @@
   <div class="projects-grid">
 
     <div class="project fade">
-		<h2>Spirit Vale Map Design</h2>
+		<h2>Spirit Vale</h2>
 		<div class="two-column">
 			<div class="left-column">
 				<img src="Assets/map-design.jpg" alt="Spirit Vale">
 			</div>
 			<div class="right-column">
-				<p>I contributed some maps and other design input for the indie MMORPG <a href="https://store.steampowered.com/app/3767850/SpiritVale/" target="_blank">Spirit Vale</a>.</p>
-				<p>Maps were made using Unity's terrain system and asset packs. Pretty fun learning project. It took me around 8 hours to finish one map while I was learning the ins and outs.</p>
-				<p>Check out a <a href="https://www.youtube.com/watch?v=O-eHcQypae0" target="_blank">walk through of one of the maps</a> on Youtube</p>
+				<p>I contributed some map designs and gameplay input for the indie MMORPG <a href="https://store.steampowered.com/app/3767850/SpiritVale/" target="_blank">Spirit Vale</a>.</p>
+				<p>Maps were made using Unity's terrain system and purchased asset packs. Pretty fun learning project. It took me around 8 hours to finish my first map while I was learning the ins and outs.</p>
+				<p>Check out a <a href="https://www.youtube.com/watch?v=O-eHcQypae0" target="_blank">walk through of one of the maps</a> I re-did on Youtube</p>
 			</div>
 		</div>
     </div>
 	
 	<div class="project fade">
-		<h2>Pikmin Battler Prototype</h2>
+		<h2>Pikmin-style Battler Concept</h2>
 		<div class="two-column">
 			<div class="left-column">
 				<img src="Assets/action-auto.jpg" alt="Pikmin Battler Prototype">
 			</div>
 			<div class="right-column">
-				<p>Another prototype where the player collects 'allies' that have different abilities and follow the player around. The idea would be that you collect them like Pikmin and run around with your big horde of allies fighting monsters.</p>
+				<p>A gameplay concept where the player collects 'allies' that have different abilities and follow the player around. The idea would be that you collect them like Pikmin and run around with your big horde of allies fighting monsters.</p>
 				<p>Check out a <a href="https://www.youtube.com/watch?v=2xVFQwXuDs0" target="_blank">short clip on Youtube</a></p>
 			</div>
 		</div>
@@ -1025,16 +1362,17 @@
     </div>
 	
 	<div class="project fade">
-		<h2>Super M*rio Online RPG</h2>
+		<h2>SNES Online RPG</h2>
 		<div class="two-column">
 			<div class="left-column">
 				<img src="Assets/mmorpg.jpg" alt="3D Auto Battler Prototype">
 			</div>
 			<div class="right-column">
-				<p>Passion project that was my introduction to more complex programming. It's a front-end client that connects to the back-end of an MMORPG emulator. The emulator was customized a bit to play like an online version of Super Mario RPG.</p>
-				<p>The client was made with Unity and written in C#. Lots of stuff to learn like properly networking a game, dealing with packets, threading, pathfinding, and lots more. If I could have gotten paid to work on it, it could have been a full time job.</p>
+				<p>Passion project that was my introduction to more complex programming. It's a front-end client that connects to the back-end of an MMORPG emulator. The emulator was customized to play like an online version of Super Mario RPG.</p>
+				<p>The client was made with Unity and written in C#. Lots of stuff to learn like properly networking a game, dealing with packets, multi-threading, pathfinding, and more. If I could have gotten paid to work on it, it could have been a full time job.</p>
 				<p>The back-end emulator was written in C++ which I was just knowledgable enough with to get it to do what I want and not crash.</p>
-				<p>Check out a <a href="https://www.youtube.com/watch?v=EgSHS8YKfBM?t=60" target="_blank">demonstration on Youtube</a></p>
+				<p>I made all the 3D art and textures. Sounds and music were taken from the SNES game.</p>
+				<p>Check out a <a href="https://youtu.be/EgSHS8YKfBM?t=115" target="_blank">demonstration on Youtube</a></p>
 			</div>
 		</div>
     </div>
@@ -1048,7 +1386,7 @@
 			<div class="right-column">
 				<p>My first foray into game design and programming. Started out as a vehicle for making 3D characters but I ended up really enjoying the design side.</p>
 				<p>It was good as a learning project, but as a game it wasn't all that fun.</p>
-				<p>Check out a <a href="https://www.youtube.com/watch?v=7s4zOo26sQI?t=166" target="_blank">demonstration on Youtube</a></p>
+				<p>Check out a <a href="https://youtu.be/7s4zOo26sQI?t=166" target="_blank">demonstration on Youtube</a></p>
 			</div>
 		</div>
     </div>
@@ -1059,9 +1397,14 @@
 <section id="connect">
   <h2>Connect</h2>
   <p>
-    <a href="#">LinkedIn</a> |
-    <a href="#">GitHub</a> |
-    <a href="#">Email</a>
+  If you want to learn more about me, contact me on LinkedIn or BlueSky!
+  </p>
+  
+  <p>
+	<a href="https://bsky.app/profile/materialblade.bsky.social" target="_blank" ><img src="Assets/logo-bsky.png" alt="Blusky" width="32"></a>
+	<a href="https://www.linkedin.com/in/kyle-wolf-ca/" target="_blank" ><img src="Assets/logo-linkedIn.png" alt="LinkedIn" width="32"></a>
+	<a href="https://www.youtube.com/@MaterialBlade" target="_blank" ><img src="Assets/logo-yt.png" alt="Youtube" width="32"></a>
+	<a href="https://github.com/MaterialBlade/" target="_blank" ><img src="Assets/logo-git.png" alt="Github" width="32"></a>
   </p>
 </section>
 <br>
@@ -1115,11 +1458,20 @@
 </script>
 
 <div class="lightbox" id="lightbox">
+
   <button class="nav prev">‹</button>
-  <img class="lightbox-img" />
+
+  <div class="lightbox-content-wrapper">
+
+    <div class="lightbox-content"></div>
+
+    <div class="lightbox-caption"></div>
+
+  </div>
+
   <button class="nav next">›</button>
+
 </div>
-<script src="LB.js" defer></script>
 
 </div>
 </body>

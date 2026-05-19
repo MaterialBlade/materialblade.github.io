@@ -1,0 +1,177 @@
+/* =========================
+   GALLERY
+========================= */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 20px;
+}
+
+.gallery-item {
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item img {
+  max-width: 400px;
+  max-height: 200px;
+  display: block;
+
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease;
+}
+
+/* Hover effect */
+.gallery-item:hover img {
+  transform: scale(1.03);
+  filter: brightness(0.85) saturate(1.2);
+}
+
+/* Video play icon */
+.gallery-item[data-type="video"]::after {
+  content: '▶';
+
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 4rem;
+  color: white;
+
+  pointer-events: none;
+}
+
+/* =========================
+   LIGHTBOX
+========================= */
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+
+  padding: 2rem;
+
+  box-sizing: border-box;
+
+  z-index: 999999;
+  isolation: isolate;
+
+  background: rgba(0,0,0,0.95);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: opacity 0.3s ease;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Content wrapper */
+.lightbox-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  /*max-width: 90vw;*/
+
+  width: 100%;
+  max-width: 1400px;
+
+  gap: 1rem;
+}
+
+.lightbox-caption {
+  margin-top: 1rem;
+
+  color: white;
+
+  text-align: center;
+
+  max-width: 800px;
+
+  line-height: 1.5;
+
+  font-size: 1rem;
+}
+
+/* Media sizing */
+/*
+.lightbox-img,
+.lightbox-video {
+  max-width: 90vw;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  transition: opacity 0.2s ease;
+}*/
+
+.lightbox-img,
+.lightbox-video {
+  max-width: 100%;
+  max-height: 75vh;
+
+  object-fit: contain;
+  
+  transition: opacity 0.2s ease;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: 5vw;            /* big invisible click zone */
+  min-width: 50px; /* was 120 */
+
+  display: flex;
+  align-items: center;
+
+  font-size: 3rem;
+  color: white;
+
+  background: transparent;
+  border: none;
+
+  cursor: pointer;
+  user-select: none;
+
+  z-index: 10;
+}
+
+.prev {
+  left: 0;
+  justify-content: flex-start;
+  padding-left: 20px;
+}
+
+.next {
+  right: 0;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
